@@ -24,7 +24,7 @@
             
             let cardsString = "";
             cards.forEach((theCard) => {
-                cardsString += theCard.toString();
+                cardsString += JSON.stringify(theCard);
                 cardsString += ",";
             });
             alert(cardsString);
