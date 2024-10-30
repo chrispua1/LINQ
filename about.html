@@ -19,18 +19,7 @@
         <script>
             function generateLink() {
                 let link = "https://chrispua1.github.io/LINQ/flashcards?cards=";
-                /*let cards = document.getElementById("flashcards").value.split(/\r\n|\r|\n/g);
-                alert(cards.toString());
-                cards.forEach((card) => {
-                    cardArr = card.split("\t");
-                    link += encodeURIComponent(cardArr[0]);
-                    link += "=";
-                    link += encodeURIComponent(cardArr[1]);
-                    link += "&"
-                    
-                });
-                link = link.substring(0, link.length - 1);*/
-                link += encodeURIComponent(btoa(document.getElementById("flashcards").value)) + "&version=1_0";
+                link += encodeURIComponent(btoa(document.getElementById("flashcards").value)) + "&version=1";
                 document.getElementById("link").innerHTML = "<a href=\"" + link + "\">" + link + "</a>";
             }
         </script>
