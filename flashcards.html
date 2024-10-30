@@ -18,7 +18,7 @@
             let card = 0;
             let flipped = false;
 
-            let studySet = atob(params.get("cards").split(/\r\n|\r|\n/g));
+            let studySet = atob(decodeURIComponent(params.get("cards"))).split(/\r\n|\r|\n/g);
             let cards = []
             study.forEach((element) => {
                 theCard = element.split("\t");
