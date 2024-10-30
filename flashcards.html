@@ -17,10 +17,13 @@
             let flashcard = document.getElementById("card");
             let card = 0;
             let flipped = false;
-            
+
             let cards = [];
+            let cards = atob(params.get("cards").split(/\r\n|\r|\n/g)
+            let cardsStr = atob(params.get("cards"));
+            
             params.forEach((value, key) => {
-                cards.push({front: key, back: value});
+                //cards.push({front: key, back: value});
             });
             
             flashcard.innerText = cards[card].front;
