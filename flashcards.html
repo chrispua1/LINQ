@@ -37,15 +37,17 @@
             }
 
             function prev() {
-                if (card > 0) card--;
-                if (flipped) flashcard.innerText = cards[card].back;
-                else flashcard.innerText = cards[card].back;
+                if (card > 0) {
+                    card--;
+                    flashcard.innerText = cards[card].front;
+                }
             }
 
             function next() {
-                if (card < cards.length - 1) card++;
-                if (flipped) flashcard.innerText = cards[card].back;
-                else flashcard.innerText = cards[card].front;
+                if (card < cards.length - 1) {
+                    card++;
+                    flashcard.innerText = cards[card].front;
+                }
             }
         </script>
     </body>
