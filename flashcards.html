@@ -12,8 +12,9 @@
         <button id="next" onClick="next()">&gt;</button>
 
         <script>
+            const url = new URL(window.location.href);
             alert("hello world");
-            let params = new URLSearchParams();
+            let params = new URLSearchParams(url);
             alert(params.toString());
             
             let flashcard = document.getElementById("card");
