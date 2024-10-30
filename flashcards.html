@@ -30,11 +30,13 @@
             }
 
             function prev() {
-
+                card--;
+                flashcard.innerText = cards[card].front;
             }
 
             function next() {
-
+                card++;
+                flashcard.innerText = cards[card].front;
             }
 
 
