@@ -38,12 +38,14 @@
 
             function prev() {
                 if (card > 0) card--;
-                flashcard.innerText = cards[card].front;
+                if (flipped) flashcard.innerText = cards[card].back;
+                else flashcard.innerText = cards[card].back;
             }
 
             function next() {
                 if (card < cards.length - 1) card++;
-                flashcard.innerText = cards[card].front;
+                if (flipped) flashcard.innerText = cards[card].back;
+                else flashcard.innerText = cards[card].front;
             }
         </script>
     </body>
