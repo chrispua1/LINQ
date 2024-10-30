@@ -19,13 +19,11 @@
             let flipped = false;
 
             let studySet = atob(decodeURIComponent(params.get("cards"))).split(/\r\n|\r|\n/g);
-            alert(studySet);
             let cards = [];
             study.forEach((element) => {
-                theCard = element.split("\t");
+                let theCard = element.split("\t");
                 cards.push({front: theCard[0], back: theCard[1]});
             });
-            alert(cards.toString());
             
             flashcard.innerText = cards[card].front;
 
