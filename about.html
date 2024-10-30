@@ -20,10 +20,12 @@
             function generateLink() {
                 let link = "https://chrispua1.github.io/LINQ/flashcards?";
                 let cards = document.getElementById("flashcards").innerText.split("\n");
+                alert(cards.toString());
                 cards.forEach((card) => {
-                    link += encodeURIComponent(card.split("\t")[0]);
+                    cardArr = card.split("\t");
+                    link += encodeURIComponent(cardArr[0]);
                     link += "=";
-                    link += encodeURIComponent(card.split("\t")[1]);
+                    link += encodeURIComponent(cardArr[1]);
                     link += "&"
                 });
                 link = link.substring(0, link.length - 1);
