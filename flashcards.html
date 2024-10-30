@@ -14,7 +14,7 @@
         <script>
             const url = new URL(window.location.href);
             alert("hello world");
-            let params = new URLSearchParams(url);
+            let params = new URLSearchParams(url.search);
             alert(params.toString());
             
             let flashcard = document.getElementById("card");
