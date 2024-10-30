@@ -19,7 +19,7 @@
         <script>
             function generateLink() {
                 let link = "https://chrispua1.github.io/LINQ/flashcards?";
-                let cards = document.getElementById("flashcards").innerText.split(/\r\n|\r|\n/g);
+                let cards = document.getElementById("flashcards").value.split(/\r\n|\r|\n/g);
                 alert(cards.toString());
                 cards.forEach((card) => {
                     cardArr = card.split("\t");
