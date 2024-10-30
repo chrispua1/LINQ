@@ -13,17 +13,14 @@
 
         <script>
             const url = new URL(window.location.href);
-            alert("hello world");
             let params = new URLSearchParams(url.search);
-            alert(params.toString());
-            
             let flashcard = document.getElementById("card");
             let card = 0;
             let flipped = false;
-            let cards = [
-                {front: "flashcard 1", back: "answer 1"},
-                {front: "flashcard 2", back: "answer 2"}
-            ];
+            let cards = [];
+            params.forEach((key, value) => {
+                cards.push({front: key, back: value});
+            });
 
             function flip() {
                 flipped = !flipped;
