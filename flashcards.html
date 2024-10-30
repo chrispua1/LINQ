@@ -21,7 +21,12 @@
             params.forEach((key, value) => {
                 cards.push({front: key, back: value});
             });
-            alert(cards.toString());
+            
+            let cardsString = "";
+            cards.forEach((theCard) => {
+                cardsString += theCard.toString();
+                cardsString += ",";
+            });
 
             function flip() {
                 flipped = !flipped;
