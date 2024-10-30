@@ -11,5 +11,24 @@
         <h1>How to Use LINQ</h1>
         <p>Enter a study set:</p>
         <textarea id="flashcards"></textarea>
+        <button onClick="generateLink()">Create link</button>
+
+        <p>Link to flashcards:</p>
+        <div id="link"></div>
+
+        <script>
+            function generateLink() {
+                let link = "https://chrispua1.github.io/LINQ/flashcards?";
+                let cards = document.getElementById("flashcards").innerText.split("\n");
+                cards.forEach((card) => {
+                    link += encodeURIComponent(card.split("\t")[0]);
+                    link += "=";
+                    link += encodeURIComponent(card.split("\t")[1]);
+                    link += "&"
+                });
+                link = link.substring(0, link.length - 1);
+                document.getElementById("link").innerText = "<a href=\"" + link + "\">" + link + "</a>";
+            }
+        </script>
     </body>
 </html>
