@@ -19,12 +19,7 @@
         <script>
             function generateLink() {
                 let link = "https://chrispua1.github.io/LINQ/flashcards?cards=";
-                let safeString = document.getElementById("flashcards").value
-                    .replaceAll("<", "&lt;")
-                    .replaceAll(">", "&gt;")
-                    .replaceAll("&", "&amp;")
-                    .replaceAll('"', "&quot;")
-                    .replaceAll("'", "&apos;");
+                let safeString = document.getElementById("flashcards").value.replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("'", "&apos;");
                 link += encodeURIComponent(btoa(safeString)) + "&version=1";
                 document.getElementById("link").innerHTML = "<a href=\"" + link + "\">" + link + "</a>";
             }
