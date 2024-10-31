@@ -62,6 +62,11 @@
             let flipped = false;
 
             let safeString = atob(decodeURIComponent(params.get("cards")))
+                .replaceAll("&lt;", "<")
+                .replaceAll("&gt;", ">")
+                .replaceAll("&amp;", "&")
+                .replaceAll("&quot;", '"')
+                .replaceAll("&apos;", "'")
                 .replaceAll("<", "&lt;")
                 .replaceAll(">", "&gt;")
                 .replaceAll("&", "&amp;")
