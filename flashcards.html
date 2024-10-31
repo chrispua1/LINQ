@@ -61,7 +61,13 @@
             let card = 0;
             let flipped = false;
 
-            let flashcards = atob(decodeURIComponent(params.get("cards"))).split(/\r\n|\r|\n/g);
+            let safeString = atob(decodeURIComponent(params.get("cards")))
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll("&", "&amp;")
+                .replaceAll('"', "&quot;")
+                .replaceAll("'", "&apos;");
+            let flashcards = safeString.split(/\r\n|\r|\n/g);
             let cards = [];
             flashcards.forEach((element) => {
                 let theCard = element.split("\t");
