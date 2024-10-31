@@ -8,11 +8,19 @@
                 padding: 256px;
                 border: 4px solid black;
             }
+
+            #card.flipped {
+                transform: rotateY(180deg);
+            }
         </style>
     </head>
     <body>
         <h1>Flashcards</h1>
         <p id="card">[Flashcards will appear here.]</p>
+        <div id="card">
+            <div id="front"></div>
+            <div id="back"></div>
+        </div>
         <button id="prev" onClick="prev()">&lt;</button>
         <button id="flip" onClick="flip()">Flip flashcard</button>
         <button id="next" onClick="next()">&gt;</button>
@@ -21,6 +29,8 @@
             const url = new URL(window.location.href);
             let params = new URLSearchParams(url.search);
             let flashcard = document.getElementById("card");
+            let cardFront = document.getElementById("front");
+            let cardBack = document.getElementById("back");
             let card = 0;
             let flipped = false;
 
@@ -31,28 +41,30 @@
                 cards.push({front: theCard[0], back: theCard[1]});
             });
             
-            flashcard.innerText = cards[card].front;
+            front.innerHTML = "<p>" + cards[card].front + "</p>";
+            back.innerHTML = "<p>" + cards[card].front + "</p>";
 
             function flip() {
                 flipped = !flipped;
-                if (flipped) {
-                    flashcard.innerText = cards[card].back;
-                } else {
-                    flashcard.innerText = cards[card].front;
-                }
+                if (flipped) flashcard.classList.add("flipped");
+                else flashcard.classList.remove("flipped");
             }
 
             function prev() {
                 if (card > 0) {
                     card--;
-                    flashcard.innerText = cards[card].front;
+                    flipped = false;
+                    front.innerHTML = "<p>" + cards[card].front + "</p>";
+                    back.innerHTML = "<p>" + cards[card].front + "</p>";
                 }
             }
 
             function next() {
                 if (card < cards.length - 1) {
                     card++;
-                    flashcard.innerText = cards[card].front;
+                    flipped = false;
+                    front.innerHTML = "<p>" + cards[card].front + "</p>";
+                    back.innerHTML = "<p>" + cards[card].front + "</p>";
                 }
             }
         </script>
