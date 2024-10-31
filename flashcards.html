@@ -71,14 +71,9 @@
             switch (params.get("version")) {
                 case "1":
                     safeString = atob(decodeURIComponent(params.get("cards")))
-                        .replaceAll("&lt;", "<")
-                        .replaceAll("&gt;", ">")
-                        .replaceAll("&amp;", "&")
-                        .replaceAll("&quot;", '"')
-                        .replaceAll("&apos;", "'")
+                        .replaceAll("&", "&amp;")
                         .replaceAll("<", "&lt;")
                         .replaceAll(">", "&gt;")
-                        .replaceAll("&", "&amp;")
                         .replaceAll('"', "&quot;")
                         .replaceAll("'", "&apos;");
                     break;
