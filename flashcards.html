@@ -5,9 +5,9 @@
         <title>LINQ | Flashcards</title>
         <style>
             #card {
+                margin: auto;
                 width: 500px;
                 height: 300px;
-                border: 2px solid black;
                 perspective: 1000px;
             }
 
@@ -20,7 +20,7 @@
                 transform-style: preserve-3d;
             }
 
-            #card:hover #inner-card {
+            #card.flipped #inner-card {
                 transform: rotateY(180deg);
             }
 
@@ -44,7 +44,8 @@
     </head>
     <body>
         <h1>Flashcards</h1>
-        <div id="card">
+        <p><span id="counter"></span> / <span id="cards"></span></p>
+        <div id="card" onClick="flip()">
             <div id="inner-card">
                 <div id="front"></div>
                 <div id="back"></div>
@@ -86,6 +87,7 @@
                 cards.push({front: theCard[0], back: theCard[1]});
             });
             
+            document.getElementById("cards") = cards.length;
             writeCard();
             
             function flip() {
@@ -96,7 +98,7 @@
             function prev() {
                 if (card > 0) {
                     card--;
-                    flipped = false;
+                    orient();
                     writeCard();
                 }
             }
@@ -104,7 +106,6 @@
             function next() {
                 if (card < cards.length - 1) {
                     card++;
-                    flipped = false;
                     orient();
                     writeCard();
                 }
@@ -113,9 +114,11 @@
             function writeCard() {
                 front.innerHTML = "<p>" + cards[card].front + "</p>";
                 back.innerHTML = "<p>" + cards[card].back + "</p>";
+                document.getElementById("counter") = card;
             }
 
             function orient() {
+                flipped = false;
                 if (flipped) flashcard.classList.add("flipped");
                 else flashcard.classList.remove("flipped");
             }
