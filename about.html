@@ -19,7 +19,7 @@
         <script>
             function generateLink() {
                 let link = "https://chrispua1.github.io/LINQ/flashcards?cards=";
-                let str = document.getElementById("flashcards").value;
+                let str = document.getElementById("flashcards").value.trim();
                 link += encodeURIComponent(btoa(str)) + "&version=1";
                 document.getElementById("link").innerHTML = "<a href=\"" + link + "\">" + link + "</a>";
             }
