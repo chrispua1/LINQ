@@ -4,10 +4,10 @@
     <head>
         <title>LINQ | Flashcards</title>
         <style>
-            body {
+            h1, p, #card, button {
                 margin: auto;
             }
-            
+
             #card {
                 width: 500px;
                 height: 300px;
@@ -23,7 +23,7 @@
                 transform-style: preserve-3d;
             }
 
-            #card.flipped #inner-card {
+            #card:hover #inner-card {
                 transform: rotateY(180deg);
             }
 
@@ -117,7 +117,7 @@
             function writeCard() {
                 front.innerHTML = "<p>" + cards[card].front + "</p>";
                 back.innerHTML = "<p>" + cards[card].back + "</p>";
-                document.getElementById("counter").innerText = card;
+                document.getElementById("counter").innerText = card + 1;
             }
 
             function orient() {
