@@ -4,8 +4,11 @@
     <head>
         <title>LINQ | Flashcards</title>
         <style>
-            #card {
+            body {
                 margin: auto;
+            }
+            
+            #card {
                 width: 500px;
                 height: 300px;
                 perspective: 1000px;
@@ -87,7 +90,7 @@
                 cards.push({front: theCard[0], back: theCard[1]});
             });
             
-            document.getElementById("cards") = cards.length;
+            document.getElementById("cards").innerText = cards.length;
             writeCard();
             
             function flip() {
@@ -114,7 +117,7 @@
             function writeCard() {
                 front.innerHTML = "<p>" + cards[card].front + "</p>";
                 back.innerHTML = "<p>" + cards[card].back + "</p>";
-                document.getElementById("counter") = card;
+                document.getElementById("counter").innerText = card;
             }
 
             function orient() {
