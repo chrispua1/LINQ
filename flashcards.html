@@ -7,7 +7,7 @@
             #card {
                 width: 300px;
                 height: 200px;
-                background-color: transparent;
+                border: 2px solid black;
                 perspective: 1000px;
             }
 
@@ -19,7 +19,7 @@
                 transform-style: preserve3d;
             }
 
-            #card:hover #card.flipped #inner-card {
+            #card:hover #inner-card {
                 transform: rotateY(180deg);
             }
 
