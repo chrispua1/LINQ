@@ -5,13 +5,9 @@
         <title>LINQ | Flashcards</title>
         <style>
             #card {
-                padding: 256px;
-                border: 4px solid black;
+                width: 300px;
+                height: 200px;
                 perspective: 1000px;
-            }
-
-            #card:hover {
-                transform: rotateY(180deg);
             }
 
             #inner-card {
@@ -22,9 +18,16 @@
                 transform-style: preserve3d;
             }
 
+            #card:hover #inner-card {
+                transform: rotateY(180deg);
+            }
+
             #front #back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                -webkit-backface-visibility: hidden;
                 backface-visiblity: hidden;
-                -webkit-backface-visiblilty: hidden;
             }
 
             #back {
