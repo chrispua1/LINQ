@@ -61,7 +61,10 @@
             let card = 0;
             let flipped = false;
 
-            let safeString = atob(decodeURIComponent(params.get("cards")))
+            let safeString = "";
+            switch (params.get("version")) {
+                case "1":
+                safeString = atob(decodeURIComponent(params.get("cards")))
                 .replaceAll("&lt;", "<")
                 .replaceAll("&gt;", ">")
                 .replaceAll("&amp;", "&")
@@ -72,6 +75,7 @@
                 .replaceAll("&", "&amp;")
                 .replaceAll('"', "&quot;")
                 .replaceAll("'", "&apos;");
+            }
             let flashcards = safeString.split(/\r\n|\r|\n/g);
             let cards = [];
             flashcards.forEach((element) => {
