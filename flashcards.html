@@ -17,9 +17,10 @@
                 height: 100%;
                 transition: transform 0.8s;
                 transform-style: preserve3d;
+                backface-visibility: hidden;
             }
 
-            #card:hover, #card.flipped, #inner-card {
+            #card.flipped, #inner-card {
                 transform: rotateY(180deg);
             }
 
