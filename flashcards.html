@@ -6,18 +6,16 @@
         <style>
             body {
                 background-color: #f6f6f6;
-                width: 100vw;
-                height: 100vh;
             }
             
-            h1, p, #card, button {
+            * {
                 margin: auto;
                 vertical-align: middle;
             }
 
             #card {
-                width: 75vw;
-                height: 45vw;
+                width: 60vw;
+                height: 36vw;
                 perspective: 1000px;
             }
 
@@ -26,7 +24,7 @@
                 width: 100%;
                 height: 100%;
                 text-align: center;
-                transition: transform 0.8s;
+                transition: transform 0.5s;
                 transform-style: preserve-3d;
             }
 
@@ -42,7 +40,6 @@
                 border: 2px solid lightgray;
                 -webkit-backface-visibility: hidden;
                 backface-visibility: hidden;
-                }
             }
 
             #front {
