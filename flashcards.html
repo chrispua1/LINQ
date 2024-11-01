@@ -86,7 +86,6 @@
                 cards.push({front: theCard[0], back: theCard[1]});
             });
             
-            document.getElementById("cards").innerText = cards.length;
             writeCard();
             
             function flip() {
@@ -112,10 +111,9 @@
             }
 
             function writeCard() {
-                front.innerHTML = "<h2><span id=\"counter\"></span> / <span id=\"cards\"></span></p>";
+                front.innerHTML = "<h2>" + (cards + 1) + " / " + cards.length + "</p>";
                 front.innerHTML += "<p>" + cards[card].front + "</p>";
                 back.innerHTML = "<p>" + cards[card].back + "</p>";
-                document.getElementById("counter").innerText = card + 1;
             }
 
             function orient() {
