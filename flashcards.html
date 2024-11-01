@@ -132,7 +132,7 @@
             }
 
             function writeCard() {
-                document.getElementbyId("counter").innerText = (card + 1) + " / " + cards.length;
+                document.getElementbyId("counter").innerText = "" + (card + 1) + " / " + cards.length;
                 front.innerHTML = "<p>" + cards[card].front + "</p>";
                 back.innerHTML = "<p>" + cards[card].back + "</p>";
             }
