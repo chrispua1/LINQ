@@ -49,7 +49,6 @@
     </head>
     <body>
         <h1>Flashcards</h1>
-        <p><span id="counter"></span> / <span id="cards"></span></p>
         <div id="card" onClick="flip()">
             <div id="inner-card">
                 <div id="front"></div>
@@ -113,7 +112,8 @@
             }
 
             function writeCard() {
-                front.innerHTML = "<p>" + cards[card].front + "</p>";
+                front.innerHTML = "<h2><span id=\"counter\"></span> / <span id=\"cards\"></span></p>";
+                front.innerHTML += "<p>" + cards[card].front + "</p>";
                 back.innerHTML = "<p>" + cards[card].back + "</p>";
                 document.getElementById("counter").innerText = card + 1;
             }
