@@ -11,6 +11,7 @@
             #card {
                 width: 50vw;
                 height: 30vw;
+                transform: rotateY(0deg);
                 perspective: 1000px;
             }
 
@@ -20,10 +21,11 @@
                 height: 100%;
                 text-align: center;
                 transition: transform 0.8s;
+                transform: rotateY(0deg);
                 transform-style: preserve-3d;
             }
 
-            #card:hover #inner-card {
+            #card.flipped #inner-card {
                 transform: rotateY(180deg);
             }
 
