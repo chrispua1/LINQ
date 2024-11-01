@@ -108,6 +108,7 @@
             function next() {
                 if (card < cards.length - 1) {
                     card++;
+                    flipped = false;
                     orient();
                     writeCard();
                 }
@@ -120,7 +121,6 @@
             }
 
             function orient() {
-                flipped = false;
                 if (flipped) flashcard.classList.add("flipped");
                 else flashcard.classList.remove("flipped");
             }
