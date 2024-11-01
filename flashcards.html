@@ -6,7 +6,7 @@
         <style>
             body {
                 background-color: #f6f6f6;
-                /*text-align: center;*/
+                text-align: center;
                 font-family: Arial, Helvetica, sans-serif
             }
 
@@ -59,6 +59,7 @@
     <body>
         <header>
             <h1>Flashcards</h1>
+            <h2 id="counter"></h2>
         </header>
         <div id="card" onClick="flip()">
             <div id="inner-card">
@@ -122,8 +123,8 @@
             }
 
             function writeCard() {
-                front.innerHTML = "<h2>" + (card + 1) + " / " + cards.length + "</p>";
-                front.innerHTML += "<p>" + cards[card].front + "</p>";
+                document.getElementbyId("counter").innerText = (card + 1) + " / " + cards.length;
+                front.innerHTML = "<p>" + cards[card].front + "</p>";
                 back.innerHTML = "<p>" + cards[card].back + "</p>";
             }
 
