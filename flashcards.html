@@ -35,6 +35,10 @@
 
             #card.flipped #inner-card {
                 transform: rotateY(180deg);
+
+                & #back * {
+                    visiblity: visible;
+                }
             }
 
             #front, #back {
@@ -62,6 +66,10 @@
             #back {
                 background-color: white;
                 transform: rotateY(180deg);
+
+                & * {
+                    visibility: hidden;
+                }
             }
         </style>
     </head>
