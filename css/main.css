@@ -28,6 +28,7 @@ nav {
 
         & li {
             float: left;
+            vertical-align: middle;
 
             & a {
                 display: block;
@@ -35,7 +36,6 @@ nav {
                 color: black;
                 padding-left: 20px;
                 padding-right: 20px;
-                vertical-align: center;
             }
         }
     }
