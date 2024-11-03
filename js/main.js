@@ -1,3 +1,5 @@
+alert("loaded main.js")
+
 function encodeFlashcards(cards, version) {
     switch (version) {
         case "1":
@@ -12,6 +14,7 @@ function encodeFlashcardsV1(cards) {
 }
 
 function decodeFlashcards(cards, version) {
+    alert("decoding flashcards");
     switch (version) {
         case "1":
             return decodeFlashcardsV1(cards);
