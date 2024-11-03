@@ -107,6 +107,7 @@
             function prev() {
                 if (card > 0) {
                     card--;
+                    flipped = false;
                     orient();
                     writeCard();
                 }
