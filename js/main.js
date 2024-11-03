@@ -3,7 +3,7 @@ function encodeFlashcards(cards, version) {
         case "1":
             return encodeFlashcardsV1(cards);
         default:
-            return encodeFlashcardsV1;
+            return encodeFlashcardsV1(cards);
     }
 }
 
