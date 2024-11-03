@@ -95,7 +95,7 @@
             let flipped = false;
             
             let cards = []
-            cards = cardsToObject(decodeFlashcards(decodeURIComponent(params.get("cards")), params.get("version")));
+            cards = cardsToObject(decodeFlashcards(params.get("cards")), params.get("version"));
             
             writeCard();
             
