@@ -84,6 +84,7 @@
             <button id="next" onClick="next()">&gt;</button>
         </footer>
 
+        <script src="js/main.js"></script>
         <script>
             const url = new URL(window.location.href);
             let params = new URLSearchParams(url.search);
@@ -93,23 +94,8 @@
             let card = 0;
             let flipped = false;
 
-            let safeString = "";
-            switch (params.get("version")) {
-                case "1":
-                    safeString = atob(decodeURIComponent(params.get("cards")))
-                        .replaceAll("&", "&amp;")
-                        .replaceAll("<", "&lt;")
-                        .replaceAll(">", "&gt;")
-                        .replaceAll('"', "&quot;")
-                        .replaceAll("'", "&apos;");
-                    break;
-            }
-            let flashcards = safeString.split(/\r\n|\r|\n/g);
-            let cards = [];
-            flashcards.forEach((element) => {
-                let theCard = element.split("\t");
-                cards.push({front: theCard[0], back: theCard[1]});
-            });
+            let cards = []
+            cards = cardsToObject(decodeCards(decodeURIComponent(params.get("cards"))), params.get("version"));
             
             writeCard();
             
