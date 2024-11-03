@@ -37,10 +37,10 @@ function cardsToObject(cards) {
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&apos;");
     let flashcards = safeString.split(/\r\n|\r|\n/g);
-    let cards = [];
+    let arr = [];
     flashcards.forEach((element) => {
         let card = element.split("\t");
-        cards.push({front: card[0], back: card[1]});
+        arr.push({front: card[0], back: card[1]});
     });
-    return cards;
+    return arr;
 }
