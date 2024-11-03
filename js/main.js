@@ -1,31 +1,38 @@
-alert("loaded main.js");
-
 function encodeFlashcards(cards, version) {
-    alert("encoding flashcards");
     switch (version) {
         case "1":
             return encodeFlashcardsV1(cards);
+        case "2":
+            return encodeFlashcardsV2(cards);
         default:
-            return encodeFlashcardsV1(cards);
+            return encodeFlashcardsV2(cards);
     }
 }
 
 function encodeFlashcardsV1(cards) {
+    return btoa(cards);
+}
+
+function encodeFlashcardsV2(cards) {
     return btoa(Array.from(new TextEncoder().encode(cards), (byte) => String.fromCodePoint(byte),).join(""));
 }
 
 function decodeFlashcards(cards, version) {
-    alert("decoding flashcards");
     switch (version) {
         case "1":
             return decodeFlashcardsV1(cards);
+        case "2":
+            return decodeFlashcardsV2(cards);
         default:
-            return decodeFlashcardsV1(cards);
+            return decodeFlashcardsV2(cards);
     }
 }
 
 function decodeFlashcardsV1(cards) {
-    alert(new TextDecoder().decode(Uint8Array.from(atob(cards), (m) => m.codePointAt(0))));
+    return atob(cards);
+}
+
+function decodeFlashcardsV2(cards) {
     return new TextDecoder().decode(Uint8Array.from(atob(cards), (m) => m.codePointAt(0)));
 }
 
