@@ -31,11 +31,11 @@ function decodeFlashcards(cards, version) {
 }
 
 function decodeFlashcardsV1(cards) {
-    return decodeURIComponent(atob(cards));
+    return atob(decodeURIComponent(cards));
 }
 
 function decodeFlashcardsV2(cards) {
-    return new TextDecoder().decode(Uint8Array.from(decodeURIComponent(atob(cards)), (m) => m.codePointAt(0)));
+    return new TextDecoder().decode(Uint8Array.from(atob(decodeURIComponent(cards)), (m) => m.codePointAt(0)));
 }
 
 function cardsToObject(cards) {
