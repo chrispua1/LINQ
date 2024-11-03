@@ -1,6 +1,7 @@
 alert("loaded main.js");
 
 function encodeFlashcards(cards, version) {
+    alert("encoding flashcards");
     switch (version) {
         case "1":
             return encodeFlashcardsV1(cards);
