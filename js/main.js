@@ -1,4 +1,4 @@
-alert("loaded main.js")
+alert("loaded main.js");
 
 function encodeFlashcards(cards, version) {
     switch (version) {
