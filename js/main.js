@@ -1,3 +1,5 @@
+const version = "2";
+
 function encodeFlashcards(cards, version) {
     switch (version) {
         case "1":

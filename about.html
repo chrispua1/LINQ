@@ -43,7 +43,7 @@
             function generateLink() {
                 let link = "https://chrispua1.github.io/LINQ/flashcards?cards=";
                 let str = document.getElementById("flashcards").value.trim();
-                link += encodeFlashcards(str, "1") + "&version=1";
+                link += encodeFlashcards(str, version) + "&version=" + version;
                 document.getElementById("link").innerHTML = "<a href=\"" + link + "\">" + link + "</a>";
             }
         </script>
