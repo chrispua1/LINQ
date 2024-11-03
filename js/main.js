@@ -38,8 +38,8 @@ function cardsToObject(cards) {
     let flashcards = safeString.split(/\r\n|\r|\n/g);
     let cards = [];
     flashcards.forEach((element) => {
-        let theCard = element.split("\t");
-        cards.push({front: theCard[0], back: theCard[1]});
+        let card = element.split("\t");
+        cards.push({front: card[0], back: card[1]});
     });
     return cards;
 }
