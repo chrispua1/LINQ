@@ -8,6 +8,7 @@ function encodeFlashcards(cards, version) {
 }
 
 function encodeFlashcardsV1(cards) {
+    alert(btoa(Array.from(new TextEncoder().encode(cards), (byte) => String.fromCodePoint(byte),).join("")));
     return btoa(Array.from(new TextEncoder().encode(cards), (byte) => String.fromCodePoint(byte),).join(""));
 }
 
@@ -21,6 +22,7 @@ function decodeFlashcards(cards, version) {
 }
 
 function decodeFlashcardsV1(cards) {
+    alert(new TextDecoder().decode(Uint8Array.from(atob(cards), (m) => m.codePointAt(0))));
     return new TextDecoder().decode(Uint8Array.from(atob(cards), (m) => m.codePointAt(0)));
 }
 
