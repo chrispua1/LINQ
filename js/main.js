@@ -12,11 +12,11 @@ function encodeFlashcards(cards, version) {
 }
 
 function encodeFlashcardsV1(cards) {
-    return btoa(cards);
+    return encodeURIComponent(btoa(cards));
 }
 
 function encodeFlashcardsV2(cards) {
-    return btoa(Array.from(new TextEncoder().encode(cards), (byte) => String.fromCodePoint(byte),).join(""));
+    return encodeURIComponent(btoa(Array.from(new TextEncoder().encode(cards), (byte) => String.fromCodePoint(byte),).join("")));
 }
 
 function decodeFlashcards(cards, version) {
@@ -31,11 +31,11 @@ function decodeFlashcards(cards, version) {
 }
 
 function decodeFlashcardsV1(cards) {
-    return atob(cards);
+    return decodeURIComponent(atob(cards));
 }
 
 function decodeFlashcardsV2(cards) {
-    return new TextDecoder().decode(Uint8Array.from(atob(cards), (m) => m.codePointAt(0)));
+    return new TextDecoder().decode(Uint8Array.from(decodeURIComponent(atob(cards)), (m) => m.codePointAt(0)));
 }
 
 function cardsToObject(cards) {
