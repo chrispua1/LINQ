@@ -79,9 +79,11 @@
         </div>
 
         <footer>
+            <button id="toStart" onClick="toStart()">&lt;&lt;</button>
             <button id="prev" onClick="prev()">&lt;</button>
             <button id="flip" onClick="flip()">Flip flashcard</button>
             <button id="next" onClick="next()">&gt;</button>
+            <button id="toEnd" onClick="toEnd()">&gt;&gt;</button>
         </footer>
 
         <script src="js/main.js"></script>
@@ -120,6 +122,20 @@
                     orient();
                     writeCard();
                 }
+            }
+
+            function toStart() {
+                card = 0;
+                flipped = false;
+                orient();
+                writeCard();
+            }
+
+            function toEnd() {
+                card = cards.length - 1;
+                flipped = false;
+                orient();
+                writeCard();
             }
 
             function writeCard() {
