@@ -80,11 +80,15 @@
             <h1>Flashcards</h1>
             <div id="counter"></div>
         </header>
-        <div id="card" onClick="flip()">
-            <div id="inner-card">
-                <div id="front" class="card"></div>
-                <div id="back" class="card"></div>
+        <div style="display: block;">
+            <button onClick="cards.push(structuredClone(cards[card])); cards.splice(card, 1);">Study</button>
+            <div id="card" onClick="flip()">
+                <div id="inner-card">
+                    <div id="front" class="card"></div>
+                    <div id="back" class="card"></div>
+                </div>
             </div>
+            <button onClick="cards.splice(card, 1);">Know</button>
         </div>
 
         <footer>
