@@ -113,7 +113,7 @@
             
             let originalCards = []
             originalCards = cardsToObject(decodeFlashcards(params.get("cards"), params.get("version")));
-            let cards = originalCards;
+            let cards = Array.from(originalCards);
 
             writeCard();
             
@@ -165,7 +165,7 @@
             }
 
             function shuffle() {
-                let temp = cards;
+                let temp = Array.from(cards);
                 cards = [];
                 
                 while (temp.length > 0) {
@@ -178,7 +178,7 @@
             }
 
             function resetCards() {
-                cards = originalCards;
+                cards = Array.from(originalCards);
                 toStart();
             }
 
