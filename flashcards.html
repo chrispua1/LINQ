@@ -80,7 +80,7 @@
             <h1>Flashcards</h1>
             <div id="counter"></div>
         </header>
-        <div style="display: flex; height: 100%;">
+        <div style="display: flex;">
             <button onClick="cards.push(structuredClone(cards[card])); cards.splice(card, 1); orient(); writeCard();">Study</button>
             <div id="card" onClick="flip()">
                 <div id="inner-card">
@@ -97,7 +97,7 @@
             <button id="flip" onClick="flip()">Flip flashcard</button>
             <button id="next" onClick="next()">&gt;</button>
             <button id="toEnd" onClick="toEnd()">&gt;&gt;</button>
-            <br>
+            <br style="height: 20px;">
             <button onClick="flipAll()">Reverse all cards</button>
             <button onClick="shuffle()">Shuffle cards</button>
             <button onclick="resetCards()">Reset cards</button>
