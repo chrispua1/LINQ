@@ -156,7 +156,7 @@
 
             function flipAll() {
                 for (let i = 0; i < cards.length; i++) {
-                    let temp = cards[i];
+                    let temp = structuredClone(cards[i]);
                     cards[i].front = temp.back;
                     cards[i].back = temp.front;
                 }
