@@ -81,14 +81,14 @@
             <div id="counter"></div>
         </header>
         <div style="display: block;">
-            <button onClick="cards.push(structuredClone(cards[card])); cards.splice(card, 1);">Study</button>
+            <button onClick="cards.push(structuredClone(cards[card])); cards.splice(card, 1); orient(); writeCard();">Study</button>
             <div id="card" onClick="flip()">
                 <div id="inner-card">
                     <div id="front" class="card"></div>
                     <div id="back" class="card"></div>
                 </div>
             </div>
-            <button onClick="cards.splice(card, 1);">Know</button>
+            <button onClick="cards.splice(card, 1); orient(); writeCard();">Know</button>
         </div>
 
         <footer>
