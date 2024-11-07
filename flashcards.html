@@ -103,16 +103,13 @@
 
         <script src="js/main.js"></script>
         <script>
-            const url = new URL(window.location.href);
-            let params = new URLSearchParams(url.search);
             let flashcard = document.getElementById("card");
             let cardFront = document.getElementById("front");
             let cardBack = document.getElementById("back");
             let card = 0;
             let flipped = false;
-            
-            let originalCards = []
-            originalCards = cardsToObject(decodeFlashcards(params.get("cards"), params.get("version")));
+
+            let originalCards = getCards(window.location.href);
             let cards = structuredClone(originalCards);
 
             writeCard();

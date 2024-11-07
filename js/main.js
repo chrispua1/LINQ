@@ -1,5 +1,11 @@
 const version = "2";
 
+function getCards() {
+    const url = new URL(window.location.href);
+    let params = new URLSearchParams(url.search);
+    return cardsToArray(decodeFlashcards(params.get("cards"), params.get("version")));
+}
+
 function encodeFlashcards(cards, version) {
     switch (version) {
         case "1":
@@ -38,7 +44,7 @@ function decodeFlashcardsV2(cards) {
     return new TextDecoder().decode(Uint8Array.from(atob(decodeURIComponent(cards)), (m) => m.codePointAt(0)));
 }
 
-function cardsToObject(cards) {
+function cardsToArray(cards) {
     let safeString = cards
         .replaceAll("&", "&amp;")
         .replaceAll("<", "&lt;")
