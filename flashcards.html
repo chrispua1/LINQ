@@ -93,6 +93,10 @@
             <button id="flip" onClick="flip()">Flip flashcard</button>
             <button id="next" onClick="next()">&gt;</button>
             <button id="toEnd" onClick="toEnd()">&gt;&gt;</button>
+            <br>
+            <button onClick="flipAll()">Reverse all cards</button>
+            <button onClick="shuffle()">Shuffle cards</button>
+            <button onclick="resetCards()">Reset cards</button>
 
             <p id="feedback">Have feedback? Submit it in a <a href="https://docs.google.com/forms/d/e/1FAIpQLSfsWsQj1rptvlBZhh0c64_KgG5DXB2IINOC9-J14UDDldS7Ng/viewform?usp=sf_link">Google Form</a>, or <a href="https://github.com/chrispua1/LINQ/issues">open an issue on GitHub</a>.</p>
         </footer>
@@ -107,9 +111,10 @@
             let card = 0;
             let flipped = false;
             
-            let cards = []
-            cards = cardsToObject(decodeFlashcards(params.get("cards"), params.get("version")));
-            
+            let originalCards = []
+            originalCards = cardsToObject(decodeFlashcards(params.get("cards"), params.get("version")));
+            let cards = originalCards;
+
             writeCard();
             
             function flip() {
@@ -147,6 +152,34 @@
                 flipped = false;
                 orient();
                 writeCard();
+            }
+
+            function flipAll() {
+                for (let i = 0; i < cards.length; i++) {
+                    let temp = cards[i];
+                    cards[i].front = temp.back;
+                    cards[i].back = temp.front;
+                }
+
+                toStart();
+            }
+
+            function shuffle() {
+                let temp = cards;
+                cards = [];
+                
+                while (temp.length > 0) {
+                    let n = Math.floor(Math.random() * temp.length);
+                    cards.push(temp[n]);
+                    temp.splice(n, 1);
+                }
+
+                toStart();
+            }
+
+            function resetCards() {
+                cards = originalCards;
+                toStart();
             }
 
             function writeCard() {
