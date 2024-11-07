@@ -80,7 +80,7 @@
             <h1>Flashcards</h1>
             <div id="counter"></div>
         </header>
-        <div style="display: block;">
+        <div style="display: table-cell; height: 100%;">
             <button onClick="cards.push(structuredClone(cards[card])); cards.splice(card, 1); orient(); writeCard();">Study</button>
             <div id="card" onClick="flip()">
                 <div id="inner-card">
