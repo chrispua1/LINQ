@@ -64,6 +64,12 @@
                     visibility: hidden;
                 }
             }
+
+            #feedback {
+                text-align: center;
+                position: absolute;
+                bottom: 20;
+            }
         </style>
     </head>
     <body>
@@ -84,6 +90,8 @@
             <button id="flip" onClick="flip()">Flip flashcard</button>
             <button id="next" onClick="next()">&gt;</button>
             <button id="toEnd" onClick="toEnd()">&gt;&gt;</button>
+
+            <p id="feedback">Have feedback? Submit it in a <a href="https://docs.google.com/forms/d/e/1FAIpQLSfsWsQj1rptvlBZhh0c64_KgG5DXB2IINOC9-J14UDDldS7Ng/viewform?usp=sf_link">Google Form</a>, or <a href="https://github.com/chrispua1/LINQ/issues">open an issue on GitHub</a>.</p>
         </footer>
 
         <script src="js/main.js"></script>
